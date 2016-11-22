@@ -1,0 +1,74 @@
+{
+  "name": "Organeed",
+  "author": "HURON KEVIN - RAFINA DANY",
+  "homepage": "https:/organeed.com/",
+  "private": true,
+  "scripts": {
+    "ionic:build": "ionic-app-scripts build",
+    "ionic:serve": "ionic-app-scripts serve"
+  },
+  "dependencies": {
+    "@angular/common": "2.1.1",
+    "@angular/compiler": "2.1.1",
+    "@angular/compiler-cli": "2.1.1",
+    "@angular/core": "2.1.1",
+    "@angular/forms": "2.1.1",
+    "@angular/http": "2.1.1",
+    "@angular/platform-browser": "2.1.1",
+    "@angular/platform-browser-dynamic": "2.1.1",
+    "@angular/platform-server": "2.1.1",
+    "@ionic/storage": "1.1.6",
+    "@types/google-maps": "^3.1.28",
+    "angular-calendar": "^0.4.0",
+    "angular2-calendar": "^0.3.6",
+    "angular2-moment": "^1.0.0-beta.rc.1",
+    "es6-shim": "0.35.0",
+    "intl": "^1.2.5",
+    "ionic-angular": "2.0.0-rc.2",
+    "ionic-native": "^2.2.3",
+    "ionic2-calendar": "0.0.12",
+    "ionicons": "3.0.0",
+    "jquery": "^3.1.1",
+    "ng2-bootstrap": "^1.1.16",
+    "rxjs": "5.0.0-beta.12",
+    "zone.js": "0.6.21"
+  },
+  "devDependencies": {
+    "@ionic/app-scripts": "0.0.44",
+    "del": "2.2.0",
+    "gulp": "3.9.1",
+    "gulp-tslint": "^5.0.0",
+    "gulp-watch": "4.3.5",
+    "ionic-gulp-browserify-typescript": "^2.0.0",
+    "ionic-gulp-fonts-copy": "^1.0.0",
+    "ionic-gulp-html-copy": "^1.0.0",
+    "ionic-gulp-sass-build": "^1.0.0",
+    "ionic-gulp-scripts-copy": "^2.0.0",
+    "ionic-gulp-tslint": "^1.0.0",
+    "run-sequence": "1.1.5",
+    "typescript": "2.0.6",
+    "tslint": "^3.10.1",
+    "tslint-ionic-rules": "0.0.5"
+  },
+  "cordovaPlugins": [
+    "plugin.google.maps",
+    "cordova-plugin-geolocation",
+    "cordova-plugin-network-information",
+    "cordova-plugin-compat"
+  ],
+  "cordovaPlatforms": [
+    "ios",
+    "android",
+    {
+      "platform": "ios",
+      "version": "",
+      "locator": "ios"
+    },
+    {
+      "platform": "android",
+      "version": "",
+      "locator": "android"
+    }
+  ],
+  "description": "organeed: Organize better"
+}

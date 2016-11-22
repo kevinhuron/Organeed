@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-navbar>
+    <button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Calendrier</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="outer-content speaker-list">
+ <!-- <ion-card *ngFor="let speaker of speakers" class="speaker">
+
+    <ion-card-header>
+      <ion-item>
+        <ion-avatar item-left>
+          <img [src]="speaker.profilePic">
+        </ion-avatar>
+        {{speaker.name}}
+        <button (click)="openContact(speaker)" clear item-right>
+          <ion-icon name="help-circle"></ion-icon>
+        </button>
+      </ion-item>
+    </ion-card-header>
+
+    <ion-card-content class="outer-content">
+      <ion-list>
+        <button ion-item *ngFor="let session of speaker.sessions" (click)="goToSessionDetail(session)">
+          <h3>{{session.name}}</h3>
+        </button>
+        <button ion-item (click)="goToSpeakerDetail(speaker)">
+          <h3>About {{speaker.name}}</h3>
+        </button>
+      </ion-list>
+    </ion-card-content>
+
+    <ion-item>
+      <button (click)="goToSpeakerTwitter(speaker)" clear item-left>
+        <ion-icon name="logo-twitter"></ion-icon>
+        Tweet
+      </button>
+      <button (click)="openSpeakerShare(speaker)" clear item-right>
+        <ion-icon name="share"></ion-icon>
+        Share
+      </button>
+    </ion-item>
+
+  </ion-card>-->
+
+
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <img src="http://i.imgur.com/7nylkQZ.png" alt="">
+        <p><strong>A responsive calendar</strong> which is best viewed: <a href="http://bootsnipp.com/iframe/V0PMQ" target="_blank">full screen</a>
+          <br>
+          FullCalendar is a jQuery plugin that provides a full-sized, drag & drop event calendar like the one below. It uses AJAX to fetch events on-the-fly and is easily configured to use your own feed format. It is visually customizable with a rich API.
+
+          <a href="http://fullcalendar.io/" target="_blank">FullCalendar Reference and Github</a>
+        </p>
+        <hr>
+
+        <div id='calendar'></div>
+
+        <p>
+          <a href="http://validator.w3.org/check?uri=http%3A%2F%2Fbootsnipp.com%2Fiframe%2FV0PMQ" target="_blank"><small>HTML</small><sup>5</sup></a>
+        </p>
+
+      </div>
+    </div>
+
+  </div>
+
+</ion-content>

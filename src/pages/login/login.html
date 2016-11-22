@@ -1,0 +1,82 @@
+<ion-content class="mybg login">
+    <div class="top-content">
+
+        <div class="inner-bg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8 col-sm-offset-2 text">
+                        <h1><strong>Organeed</strong></h1>
+                        <!--<div class="description">
+                            <p>
+                                This is a free responsive login form made with Bootstrap.
+                                Download it on <a href="http://azmind.com"><strong>AZMIND</strong></a>, customize and use it as you like!
+                            </p>
+                        </div>-->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3 form-box">
+                        <div class="form-top">
+                            <div class="form-top-left">
+                                <h3>Connexion</h3>
+                                <p>Veuillez vous authentifier</p>
+                            </div>
+                            <div class="form-top-right">
+                                <i class="fa fa-lock"></i>
+                            </div>
+                        </div>
+                        <div class="form-bottom">
+                            <form #loginForm="ngForm" novalidate class="login-form">
+                                <ion-item class="myionitem">
+                                    <ion-icon ios="ios-contact" md="md-contact" item-left></ion-icon>
+                                    <ion-input class="inputlogin" [(ngModel)]="login.username" name="username" type="email" #username="ngModel"
+                                               spellcheck="false" autocapitalize="off" required placeholder="E-mail">
+                                    </ion-input>
+                                </ion-item>
+                                <p [hidden]="username.valid || submitted == false" danger padding-left style="padding-left: 55px;">
+                                    L'email est obligatoire
+                                </p>
+                                <ion-item class="myionitem marginTop30">
+                                    <ion-icon ios="ios-lock" md="md-lock" item-left></ion-icon>
+                                    <ion-input [(ngModel)]="login.password" name="password" type="password" #password="ngModel" required placeholder="Mot de passe">
+                                    </ion-input>
+                                </ion-item>
+                                <p [hidden]="password.valid || submitted == false" danger padding-left style="padding-left: 55px;">
+                                    Le mot de passe est obligatoire
+                                </p>
+                                <br>
+                                <button (click)="onLogin(loginForm)" type="submit"  class="btn">Valider</button>
+
+                                <div>&nbsp;</div>
+                                <button (click)="onSignup()"   class="btn">S'inscrire</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3 social-login">
+                        <h3>ou connecter vous avec:</h3>
+                        <div class="social-login-buttons">
+                            <a class="btn btn-link-2" href="#">
+                                <ion-icon ios="logo-facebook" md="logo-facebook"></ion-icon> Facebook
+                            </a>
+                            <a class="btn btn-link-2" href="#">
+                                <ion-icon ios="logo-twitter" md="logo-twitter"></ion-icon> Twitter
+                            </a>
+                            <a class="btn btn-link-2" href="#">
+                                <ion-icon ios="logo-googleplus" md="logo-googleplus"></ion-icon> Google Plus
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</ion-content>
+
+<ion-footer><h5>&copy; 2016 - Organeed - All rights reserved</h5> </ion-footer>
+
+

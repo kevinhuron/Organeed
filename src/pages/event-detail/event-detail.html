@@ -1,0 +1,109 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{event.title}}</ion-title>
+        <ion-buttons end>
+            <button (click)="presentPopover($event)">
+                <ion-icon name="more"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <div class="event-detail-header">
+        <img src="img/appicon.png">
+    </div>
+    <p>TODO : map here ?</p>
+    <h1><strong>{{event.title}}</strong></h1>
+    <ion-row responsive-sm>
+        <ion-col>
+            <ion-item>
+                <ion-icon name="calendar" item-left></ion-icon>
+                <h3><strong>Début</strong> : {{event.date_start}} - {{event.hour_start}}</h3>
+            </ion-item>
+        </ion-col>
+        <ion-col>
+            <ion-item>
+                <ion-icon name="calendar" item-left></ion-icon>
+                <h3><strong>Fin</strong> : {{event.date_end}} - {{event.hour_end}}</h3>
+            </ion-item>
+        </ion-col>
+    </ion-row>
+    <ion-item>
+        <ion-icon name="pin" item-left></ion-icon>
+        <h4><strong>Lieu</strong> : {{event.place}}</h4>
+    </ion-item>
+    <h3><strong>Description : </strong></h3>
+    <h5>{{event.description}}</h5>
+    <hr>
+    <ion-list>
+        <ion-item-group [hidden]="nbComments < 0">
+            <ion-item-divider>
+                <ion-icon ios="ios-chatbubbles" md="md-chatbubbles"></ion-icon>
+                Commentaires ({{nbComments}})
+            </ion-item-divider>
+            <ion-item-sliding *ngFor="let comment of comments">
+                <ion-item>
+                    <ion-avatar item-left>
+                        <img src="http://www.gravatar.com/avatar?d=mm&s=140">
+                    </ion-avatar>
+                    <small style="font-size: 50%" item-right> <!--  *ngIf="colors" -->
+                        <ion-icon name="square" style="padding-left: 5px" *ngFor="let color of colors" [ngStyle]="{'color': color.color}"></ion-icon> <!--  *ngFor="let color of colors" [ngStyle]="{'color': color.color}" -->
+                        <!--<ion-icon name="square" style="padding-left: 5px"></ion-icon>
+                        <ion-icon name="square" style="padding-left: 5px"></ion-icon>
+                        <ion-icon name="square" style="padding-left: 5px"></ion-icon>-->
+                    </small>
+                    <p><strong>{{ comment.first_name }} {{ comment.last_name }}</strong>
+
+                    </p>
+                    <ion-item text-wrap no-lines no-padding>
+                        <p>{{comment.content}}</p>
+                    </ion-item>
+                    <p>{{comment.date_comment | amTimeAgo}}</p>
+
+                </ion-item>
+                <ion-item-options>
+                    <button secondary *ngIf="comment.author == userid">
+                        <ion-icon name="create"></ion-icon>
+                        Modifier
+                    </button>
+                    <button danger *ngIf="comment.author == userid">
+                        <ion-icon name="trash"></ion-icon>
+                        Supprimer
+                    </button>
+                    <button primary>
+                        <ion-icon name="text"></ion-icon>
+                        Répondre
+                    </button>
+                </ion-item-options>
+            </ion-item-sliding>
+        </ion-item-group>
+    </ion-list>
+    <h3 *ngIf="nbComments === 0">
+        Aucun commentaires.
+    </h3>
+</ion-content>
+
+<ion-footer>
+    <form #commentForm="ngForm" novalidate>
+        <ion-toolbar md="light">
+            <ion-badge *ngFor="let tag of tagdetail" [ngStyle]="{'background-color': tag.color}" style="margin-left: 5px">{{tag.name}}</ion-badge>
+            <ion-buttons start>
+                <button small ion-button icon-only (click)="addTagsFilter()">
+                    <ion-icon ios="ios-add-circle" md="md-add-circle"></ion-icon>
+                </button>
+            </ion-buttons>
+            <ion-input [(ngModel)]="comment.message" type="text" name="message" placeholder="Votre message..."
+                       #message="ngModel" required>
+            </ion-input>
+
+            <ion-buttons end>
+                <button (click)="onComment(commentForm)" type="submit" small [disabled]="!message.valid">
+                    Send
+                    <ion-icon ios="ios-send" md="md-send"></ion-icon>
+                </button>
+            </ion-buttons>
+        </ion-toolbar>
+    </form>
+</ion-footer>
+

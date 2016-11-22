@@ -1,0 +1,30 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons start>
+            <button (click)="dismiss(null)">Annuler</button>
+        </ion-buttons>
+
+        <ion-title>
+            Filtrer commentaires
+        </ion-title>
+
+        <ion-buttons end>
+            <button (click)="applyFilters()">Valider</button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="outer-content">
+    <ion-list>
+        <button ion-item (click)="resetFilters()" danger detail-none >
+            Réinitialiser les tags
+        </button>
+    </ion-list>
+    <ion-list>
+        <ion-list-header>Liste des Tags</ion-list-header>
+        <ion-item *ngFor="let tag of tagsChoosen">
+            <ion-icon name="square" item-right [ngStyle]="{'color': tag.color}"></ion-icon>
+            <ion-label>{{tag.name}}</ion-label>
+            <ion-checkbox [(ngModel)]="tag.isChecked"></ion-checkbox>
+        </ion-item>
+    </ion-list>
+</ion-content>

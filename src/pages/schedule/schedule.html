@@ -1,0 +1,132 @@
+<ion-header>
+    <ion-navbar no-border-bottom>
+        <button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <!--<ion-title>Evènements</ion-title>-->
+        <ion-segment [(ngModel)]="segment" (ionChange)="updateSchedule()" >
+            <ion-segment-button value="my">
+                Mes évènements
+            </ion-segment-button>
+            <ion-segment-button value="participe">
+                Participation
+            </ion-segment-button>
+        </ion-segment>
+
+
+        <!--<ion-buttons end>
+            <button (click)="presentFilter()">
+                <ion-icon ios="ios-options-outline" md="md-options"></ion-icon>
+            </button>
+        </ion-buttons>-->
+    </ion-navbar>
+
+    <ion-toolbar no-border-top>
+        <ion-searchbar primary [(ngModel)]="queryText" (ionInput)="updateSchedule()" placeholder="Rechercher">
+        </ion-searchbar>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="cards-bg outer-content form" >
+    <ion-refresher (ionRefresh)="refresh($event)">
+        <ion-refresher-content
+                pullingIcon="arrow-round-down"
+                pullingText="Tirer pour rafraichir"
+                refreshingSpinner="circles"
+                refreshingText="Chargement..."></ion-refresher-content>
+    </ion-refresher>
+    <div *ngIf="segment === 'my'">
+    <ion-card *ngFor="let event of events" [hidden]="shownSessions === 0">
+        <!--<img src="assets/img/nin-live.png"/>-->
+        <button ion-item (click)="goToSessionDetail(event)">
+            <ion-card-content>
+                <h2 class="card-title">
+                    {{event.title}}
+                </h2>
+                <p>
+                    {{event.description }}
+                </p>
+                <p>
+                    <strong>Début</strong> : {{event.date_start}} - {{event.hour_start}}
+                </p>
+                <p>
+                    <strong>Fin</strong> : {{event.date_end}} - {{event.hour_end}}
+                </p>
+                <p>
+                    <strong>Lieu</strong> : {{event.place}}
+                </p>
+            </ion-card-content>
+        </button>
+        <ion-row no-padding>
+            <ion-col text-center>
+                <ion-icon ios="ios-chatbubbles" md="md-chatbubbles"></ion-icon> <ion-badge light >{{nbComments}}</ion-badge>
+            </ion-col>
+            <ion-col text-center>
+                <!-- EMPTY -->
+            </ion-col>
+            <ion-col text-center>
+                <ion-icon ios="ios-people" md="md-people"></ion-icon> <ion-badge light>3</ion-badge>
+            </ion-col>
+        </ion-row>
+        <ion-row no-padding>
+            <ion-col>
+                <button (click)="removeEvent(event, 'Supprimer ?')" ion-button clear small color="danger" icon-left>
+                    <ion-icon ios="ios-trash" md="md-trash"></ion-icon>
+                    Supprimer
+                </button>
+            </ion-col>
+            <ion-col text-center>
+                <button ion-button clear small icon-left>
+                    <ion-icon ios="ios-create-outline" md="md-create"></ion-icon>
+                    Modifier
+                </button>
+            </ion-col>
+            <ion-col text-right>
+                <button ion-button clear small icon-left>
+                    <ion-icon ios="ios-share-alt" md="md-share-alt"></ion-icon>
+                    Partager
+                </button>
+            </ion-col>
+        </ion-row>
+    </ion-card>
+    <!--<ion-list #scheduleList [hidden]="shownSessions === 0">
+
+        <ion-item-group><!-- *ngFor="let day of days" -->
+
+    <!--<ion-item-divider sticky>
+        {{day}}
+    </ion-item-divider>-->
+
+    <!--<ion-item-sliding *ngFor="let event of events" #slidingItem>-->
+    <!--<button ion-item (click)="goToSessionDetail(event)">
+        <h3>{{event.title}}</h3>
+        <p>
+            Du {{event.date_start}} à {{event.hour_start}} au {{event.date_end}} à {{event.hour_end}}
+        </p>
+        <p>
+            {{event.description | truncate : 50}}
+        </p>
+    </button>
+
+    <ion-item-options>
+        <button favorite (click)="addFavorite(slidingItem, event)" *ngIf="segment === 'all'">
+            Favoris
+        </button>
+        <button danger (click)="removeEvent(slidingItem, event, 'Supprimer ?')" *ngIf="segment === 'all'">
+            Supprimer
+        </button>
+        <button danger (click)="removeFavorite(slidingItem, event, 'Remove Favorite')" *ngIf="segment === 'favorites'">
+            Supprimer
+        </button>
+    </ion-item-options>
+
+<!--</ion-item-sliding>
+
+</ion-item-group>
+
+</ion-list>-->
+    <ion-list-header *ngIf="nbEvents === 0">
+        Aucun évènements de trouvés.
+    </ion-list-header>
+</div>
+</ion-content>
