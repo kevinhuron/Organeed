@@ -38,7 +38,7 @@ export class MyApp {
   // the left menu only works after login
   // the login page disables the left menu
   appPages: PageObj[] = [
-    { title: 'Evènements', component: TabsPage, icon: 'calendar' },
+    { title: 'Evènements', component: TabsPage, icon: 'albums' },
     { title: 'Calendrier', component: TabsPage, index: 1, icon: 'calendar' },
     { title: 'Créer un évènement', component: TabsPage, index: 2, icon: 'add-circle' },
     { title: 'Carte', component: TabsPage, index: 3, icon: 'map' },

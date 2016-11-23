@@ -16,10 +16,11 @@
 // automatically applied to the <body> element in the app.
 
 
-body, .toolbar-background, .tabbar  {
-  background: #485563 !important; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, #485563, #29323c) !important; /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #485563, #29323c) !important; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+body, .toolbar-background, .tabbar, .cards-bg  {
+  background: #24C6DC!important; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #24C6DC , #514A9D)!important; /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #24C6DC , #514A9D)!important; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 
 .toolbar-title, .tab-button-icon, .tab-button-text, .segment-button{
@@ -43,10 +44,7 @@ body, .toolbar-background, .tabbar  {
   border-top: 1px solid white;
 }
 
-.tab-button
-{
-  border-right: 1px solid white;
-}
+
 
 .tabs-ios .tab-button {
 
@@ -56,5 +54,53 @@ body, .toolbar-background, .tabbar  {
 .searchbar-input-container{
   background-color: white;
 }
+
+.input-mod input
+{
+  background-color: white;
+  text-align: left;
+  font: 17px black solid;
+  font-weight: 800;
+  padding: 2px 0px 2px 7px;
+  border-radius: 3px;
+
+}
+
+.mod-send
+{
+  background-color: transparent;
+  color: white;
+  font-weight: 600;
+}
+
+.bar-buttons-md button, .back-button, .bar-buttons-ios button, .bar-buttons-ios
+{
+  background-color: transparent;
+  color: white;
+  font-weight: 600;
+}
+
+.bar-buttons-ios button, h5
+{
+  color: white;
+}
+
+.segment-ios .segment-button.segment-activated {
+  color: #000!important;
+  background-color: rgb(255, 255, 255);
+  opacity: 1;
+  transition: 100ms all linear;
+  border: 1px solid white;
+}
+
+.segment-ios .segment-button:last-of-type, .segment-ios .segment-button:first-of-type {
+  border: 1px solid white!important;
+}
+
+.toolbar .searchbar-ios .searchbar-input {
+  background: rgba(255, 255, 255, 0.08)!important;
+}
+
+
 
 

@@ -4,36 +4,8 @@ import { TagsList } from '../tags-list/tags-list';
 import { NavParams, AlertController, ViewController, PopoverController } from 'ionic-angular';
 import { UserData } from '../../providers/user-data';
 import { ModalController, LoadingController } from 'ionic-angular';
-import { FilterCom } from '../filterCom/filterCom';
+import { PopoverMod } from '../popovermod/popovermod';
 
-/** POPOVER **/
-@Component({
-    template: `
-    <ion-list>
-        <button ion-item (click)="close()" ion-item><ion-icon ios="ios-create-outline" md="md-create"></ion-icon> Modifier</button>
-        <button ion-item (click)="showFilterComModal()" ion-item><ion-icon ios="ios-options-outline" md="md-options"></ion-icon> Filtrer commentaires</button>
-        <button ion-item (click)="close()" ion-item><ion-icon ios="ios-person-add" md="md-person-add"></ion-icon> Ajouter personnes</button>
-        <button ion-item (click)="close()" ion-item><ion-icon ios="ios-trash" md="md-trash"></ion-icon> Supprimer</button>
-    </ion-list>
-  `
-})
-class PopoverPage {
-
-    constructor(public viewCtrl: ViewController, public modalCtrl: ModalController) {
-    }
-
-    showFilterComModal () {
-        let modal = this.modalCtrl.create(FilterCom);
-        modal.onDidDismiss(data => {
-
-        });
-        modal.present();
-    }
-
-    close() {
-        this.viewCtrl.dismiss();
-    }
-}
 /** END POPOVER **/
 
 @Component({
@@ -152,9 +124,10 @@ export class EventDetailPage {
     }
 
     presentPopover(event) {
-        let popover = this.popoverCtrl.create(PopoverPage);
+        let popover = this.popoverCtrl.create(PopoverMod);
         popover.present({ev: event});
     }
+
 
     getUserId() {
         this.userData.getUserId().then((userid) => {

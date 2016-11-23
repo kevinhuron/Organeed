@@ -93,13 +93,13 @@
                     <ion-icon ios="ios-add-circle" md="md-add-circle"></ion-icon>
                 </button>
             </ion-buttons>
-            <ion-input [(ngModel)]="comment.message" type="text" name="message" placeholder="Votre message..."
+            <ion-input class="input-mod" [(ngModel)]="comment.message" type="text" name="message" placeholder="Votre message..."
                        #message="ngModel" required>
             </ion-input>
 
             <ion-buttons end>
                 <button (click)="onComment(commentForm)" type="submit" small [disabled]="!message.valid">
-                    Send
+                    Post &nbsp;
                     <ion-icon ios="ios-send" md="md-send"></ion-icon>
                 </button>
             </ion-buttons>

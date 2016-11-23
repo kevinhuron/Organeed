@@ -17,6 +17,7 @@ import {TabsPage} from "../pages/tabs/tabs";
 import {TagsList} from "../pages/tags-list/tags-list";
 import {AddressPicker} from "../pages/addressPicker/addressPicker";
 import {FilterCom} from "../pages/filterCom/filterCom";
+import {PopoverMod} from "../pages/popovermod/popovermod";
 
 import {OrganeedService} from "../providers/organeed";
 import {ConferenceData} from "../providers/conference-data";
@@ -50,7 +51,8 @@ import {MomentModule} from 'angular2-moment';
     TruncatePipe,
     TagsList,
     AddressPicker,
-    FilterCom
+    FilterCom,
+    PopoverMod
 
   ],
   imports: [
@@ -75,7 +77,8 @@ import {MomentModule} from 'angular2-moment';
     CalendarEvent,
     TagsList,
     AddressPicker,
-    FilterCom
+    FilterCom,
+    PopoverMod
   ],
   providers: [
     OrganeedService,
