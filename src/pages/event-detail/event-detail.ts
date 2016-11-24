@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { OrganeedService } from '../../providers/organeed';
 import { TagsList } from '../tags-list/tags-list';
-import { NavParams, AlertController, ViewController, PopoverController } from 'ionic-angular';
+import { NavParams, AlertController, /*ViewController,*/ PopoverController } from 'ionic-angular';
 import { UserData } from '../../providers/user-data';
 import { ModalController, LoadingController } from 'ionic-angular';
 import { PopoverMod } from '../popovermod/popovermod';

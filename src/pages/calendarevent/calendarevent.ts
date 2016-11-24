@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { ActionSheet, ActionSheetController, NavController } from 'ionic-angular';
-import { InAppBrowser } from 'ionic-native';
+// import { InAppBrowser } from 'ionic-native';
 import * as $ from "jquery";
 
 import { ConferenceData } from '../../providers/conference-data';
