@@ -49,16 +49,16 @@ export class EventDetailPage {
             content: ''
         });
         console.log(this.comment.message);
+        // check if user write real word
         if (this.comment.message.trim().length === 0) {
             console.log('no message');
             alertMessage.present();
         } else {
             console.log('message OK');
             loader.present();
+            // insert comment to this event
             this.organeed.addCommentToEvent(this.event.id_event, this.comment.message).subscribe(
                 data => {
-                    // this.message = data.json().message;
-
                     this.lastIdCom = data.json().last_id;
                     if (this.filterTagsAdded) {
                         for (let idtag of this.filterTagsAdded) {
@@ -80,20 +80,6 @@ export class EventDetailPage {
                 },
                 () => console.log('Comment insert is succesful')
             );
-            /*if (this.filterTagsAdded) {
-                for (let idtag of this.filterTagsAdded) {
-                    console.log(idtag);
-                    console.log(this.lastIdCom);
-                    this.organeed.linkTagToComment(idtag, this.lastIdCom).subscribe(data => {
-                        this.updateComment(this.event.id_event);
-                    },
-                        err => {
-                            console.log('Error link tag comment');
-                        },
-                        () => console.log('link tag comment succesfull')
-                    );
-                }
-            }*/
         }
     }
 
@@ -109,6 +95,7 @@ export class EventDetailPage {
     }
 
     updateComment(idevent) {
+        // get list of comment by event
         this.organeed.getComments(idevent).subscribe(res => {
             console.log('organeed get comments passed');
             this.nbComments = res.json().comments.length;
@@ -148,15 +135,6 @@ export class EventDetailPage {
     }
 
     getTagDetailById() {
-        // let ids = this.filterTagsAdded;
-        /*for (let idtag of ids) {
-            this.organeed.getTagsById(idtag).subscribe(res => {
-                console.log('organeed get tag by id passed');
-                this.tagdetail = res.json().tags;
-                console.log(this.tagdetail);
-            });
-            console.log(this.tagdetail);
-        }*/
         this.organeed.getTagsById(this.filterTagsAdded).subscribe(res => {
             console.log('organeed get tag by id passed');
             this.tagdetail = res.json().tags;

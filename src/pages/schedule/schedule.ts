@@ -14,10 +14,6 @@ import { UserData } from '../../providers/user-data';
 })
 
 export class SchedulePage {
-    // the list is a child of the schedule page
-    // @ViewChild('scheduleList') gets a reference to the list
-    // with the variable #scheduleList, `read: List` tells it to return
-    // the List and not a reference to the element
     @ViewChild('scheduleList', {read: List}) scheduleList: List;
 
     dayIndex = 0;
@@ -55,8 +51,7 @@ export class SchedulePage {
     };
 
     updateSchedule() {
-        // Close any open sliding items when the schedule updates
-        // this.scheduleList && this.scheduleList.closeSlidingItems();
+        // initalize event
         this.organeed.getEventByManager(this.queryText).subscribe(res => {
             console.log('organeed get event by manager passed');
             this.nbEvents = res.json().events.length;
@@ -64,50 +59,15 @@ export class SchedulePage {
             let events = res.json().events;
             for (let event of events) {
                 this.organeed.getComments(event.id_event).subscribe(res => {
-                    // console.log(res.json().comments.length);
                     this.nbComments = res.json().comments.length;
                 });
             }
         });
-        /*this.confData.getTimeline(this.dayIndex, this.queryText, this.excludeTracks, this.segment).then(data => {
-            console.log(data.length);
-            this.nbEvents = data.length;
-            // this.groups = data;
-            /*let days = [];
-            let allevent = [];
-            for (let event of data) {
-                days.push(event.date_start);
-            }
-            let i = 0;
-            for (let event of data) {
-                for (let day of days) {
-                    if (event.date_start === day) {
-                        allevent[day] = [];
-                        allevent[day][i] = event;
-                    }
-                    i++;
-                }
-            }
-            console.log(allevent);
-            this.events = data;
-            // this.days = days;
-        });*/
     }
 
-    /*presentFilter() {
-        let modal = this.modalCtrl.create(ScheduleFilterPage, this.excludeTracks);
-        modal.present();
-        modal.onDidDismiss((data: any[]) => {
-            if (data) {
-                this.excludeTracks = data;
-                this.updateSchedule();
-            }
-        });
-    }*/
 
     goToSessionDetail(sessionData) {
-        // go to the session detail page
-        // and pass in the session data
+        // go to event detail page
         this.navCtrl.push(EventDetailPage, sessionData);
     };
 
@@ -197,6 +157,7 @@ export class SchedulePage {
         // now present the alert on top of all other content
         alert.present();
     };
+    // ion refresher 'pull to refresh'
     refresh(refresher) {
         this.updateSchedule();
         refresher.complete();

@@ -33,28 +33,7 @@ export class TagsList {
                 });
             }
         });
-        /*this.confData.getTracks().then((trackNames: string[]) => {
-
-         trackNames.forEach(trackName => {
-         this.tracks.push({
-         name: trackName,
-         isChecked: (excludedTrackNames.indexOf(trackName) === -1)
-         });
-         });
-         });*/
     }
-
-    /*ngAfterViewInit() {
-     this.getTag();
-     }*/
-
-    /*getTag() {
-        this.organeed.getTags().subscribe(res => {
-            console.log('organeed get tags passed');
-            this.tags = res.json().tags;
-            console.log(res.json().tags);
-        });
-    }*/
 
     resetFilters() {
         // reset all of the toggles to be unchecked
@@ -64,16 +43,7 @@ export class TagsList {
     }
 
     applyFilters() {
-        // Pass back a new array of track names to exclude
-        // let excludedTrackNames = this.tracks.filter(c => !c.isChecked).map(c => c.name);
-        // this.dismiss(excludedTrackNames);
-        // let tagsChoosenNameColor;
         let tagChoosenId = this.tagsChoosen.filter(c => c.isChecked).map(c => c.id);
-        // let tagChoosenName = this.tagsChoosen.filter(c => !c.isChecked).map(c => c.name);
-        // let tagChoosenColor = this.tagsChoosen.filter(c => !c.isChecked).map(c => c.color);
-        // console.log(this.tags);
-        // tagsChoosenNameColor = Array(tagChoosenName, tagChoosenColor, tagChoosenId);
-        // console.log(tagsChoosenNameColor);
         this.dismiss(tagChoosenId);
     }
 

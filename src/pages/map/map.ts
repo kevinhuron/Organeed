@@ -12,6 +12,7 @@ export class MapPage {
     }
 
     loadMap() {
+        // get event lat lng
         this.organeed.getLatLngEvent().subscribe(data => {
             let mapEle = document.getElementById('map');
             let mapData = data.json().latlng;
@@ -20,7 +21,7 @@ export class MapPage {
                 zoom: 6,
                 mapTypeId: google.maps.MapTypeId.ROADMAP,
             });
-
+            // create map and marker
             mapData.forEach(markerData => {
                 if (markerData.lat !== null && markerData.lng !== null) {
                     let infoWindow = new google.maps.InfoWindow({

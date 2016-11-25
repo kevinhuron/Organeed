@@ -1,7 +1,5 @@
 import { Component, NgZone } from '@angular/core';
-
 import { ViewController } from 'ionic-angular';
-
 
 @Component({
     templateUrl: 'addressPicker.html'

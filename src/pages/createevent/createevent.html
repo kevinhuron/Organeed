@@ -6,81 +6,6 @@
         <ion-title>Créer un évènement</ion-title>
     </ion-navbar>
 </ion-header>
-<!--<ion-content class="createevent-page">
-    <ion-list>
-        <form #eventCreateForm="ngForm" novalidate>
-            <ion-item class="marginTop30">
-                <ion-icon name="quote" item-left></ion-icon>
-                <ion-input [(ngModel)]="addevent.title" name="title" type="text" #title="ngModel" required placeholder="Titre de l'évènement">
-                </ion-input>
-            </ion-item>
-            <p [hidden]="title.valid || submitted == false" danger padding-left style="padding-left: 55px;">
-                Le titre est requis
-            </p>
-            <ion-item class="marginTop30">
-                <ion-icon name="albums" item-left></ion-icon>
-                <ion-textarea [(ngModel)]="addevent.desc" name="title" type="text" #desc="ngModel" required placeholder="Description de l'évènement">
-                </ion-textarea>
-            </ion-item>
-            <p [hidden]="desc.valid || submitted == false" danger padding-left style="padding-left: 55px;">
-                La description est requise
-            </p>
-            <ion-item class="marginTop30">
-                <ion-icon name="pin" item-left></ion-icon>
-                <ion-input [(ngModel)]="addevent.localisation" name="localisation" id="location" type="text" #localisation="ngModel"
-                           required placeholder="Lieu de l'évènement" (click)="showAddressModal()">
-                </ion-input>
-            </ion-item>
-            <p [hidden]="localisation.valid || submitted == false" danger padding-left style="padding-left: 55px;">
-                La localisation est requise
-            </p>
-            <ion-item class="marginTop30">
-                <ion-icon name="calendar" item-left></ion-icon>
-                <ion-label>Date de début</ion-label>
-                <ion-datetime [(ngModel)]="addevent.startDate" name="datestart" type="text" #startdate="ngModel"
-                              required></ion-datetime>
-            </ion-item>
-            <p [hidden]="startdate.valid || submitted == false" danger padding-left style="padding-left: 55px;">
-                La date de début est requis
-            </p>
-            <ion-item class="marginTop30">
-                <ion-icon name="clock" item-left></ion-icon>
-                <ion-label>Heure de début</ion-label>
-                <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" [(ngModel)]="addevent.startTime"
-                              name="starttime" type="text" #starttime="ngModel" required
-                              required></ion-datetime>
-            </ion-item>
-            <p [hidden]="starttime.valid || submitted == false" danger padding-left style="padding-left: 55px;">
-                L'heure de début est requis
-            </p>
-            <ion-item class="marginTop30">
-                <ion-icon name="calendar" item-left></ion-icon>
-                <ion-label>Date de fin</ion-label>
-                <ion-datetime [(ngModel)]="addevent.endDate" name="enddate" type="text" #enddate="ngModel"
-                              required></ion-datetime>
-            </ion-item>
-            <p [hidden]="enddate.valid || submitted == false" danger padding-left style="padding-left: 55px;">
-                La date de fin est requis
-            </p>
-            <ion-item class="marginTop30">
-                <ion-icon name="clock" item-left></ion-icon>
-                <ion-label>Heure de début</ion-label>
-                <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" [(ngModel)]="addevent.endTime" name="endtime"
-                              type="text" #endtime="ngModel" required ></ion-datetime>
-                </ion-item>
-            <p [hidden]="endtime.valid || submitted == false" danger padding-left style="padding-left: 55px;">
-                L'heure de fin est requis
-            </p>
-            <div padding>
-                <button (click)="onCreate(eventCreateForm)" type="submit" primary block round><ion-icon name="checkmark-circle-outline" item-left></ion-icon>Créer</button>
-            </div>
-        </form>
-    </ion-list>
-</ion-content>-->
-
-
-
-
 <ion-content class="mybg login">
     <div class="top-content">
 
@@ -179,10 +104,7 @@
                 </div>
             </div>
         </div>
-
     </div>
-
-
 </ion-content>
 
 

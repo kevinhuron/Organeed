@@ -28,16 +28,7 @@ export class FilterCom {
     }
 
     applyFilters() {
-        // Pass back a new array of track names to exclude
-        // let excludedTrackNames = this.tracks.filter(c => !c.isChecked).map(c => c.name);
-        // this.dismiss(excludedTrackNames);
-        // let tagsChoosenNameColor;
         let tagChoosenId = this.tagsChoosen.filter(c => c.isChecked).map(c => c.id);
-        // let tagChoosenName = this.tagsChoosen.filter(c => !c.isChecked).map(c => c.name);
-        // let tagChoosenColor = this.tagsChoosen.filter(c => !c.isChecked).map(c => c.color);
-        // console.log(this.tags);
-        // tagsChoosenNameColor = Array(tagChoosenName, tagChoosenColor, tagChoosenId);
-        // console.log(tagsChoosenNameColor);
         this.dismiss(tagChoosenId);
     }
 

@@ -28,16 +28,10 @@ export class CreateEventPage {
                 content: ''
             });
             loader.present();
+            // create event
             this.organeed.addevent(this.addevent.title, this.addevent.startDate, this.addevent.startTime,
                 this.addevent.endDate, this.addevent.endTime, this.addevent.desc, this.addevent.localisation, this.lat, this.lng).subscribe(
                 data => {
-                    // this.message = data.json().message;
-                    /*Toast.show('Votre évènement a été créé', '2000', 'center').subscribe(
-                     toast => {
-                     console.log(toast);
-                     console.log(data.json().message);
-                     }
-                     );*/
                     loader.dismiss();
                     this.navCtrl.setRoot(SchedulePage).then(() => {
                         const index = this.navCtrl.getActive().index;
@@ -56,6 +50,7 @@ export class CreateEventPage {
             );
         }
     }
+    // show adress picker modal to choose adress
     showAddressModal () {
         let modal = this.modalCtrl.create(AddressPicker);
         modal.onDidDismiss(data => {

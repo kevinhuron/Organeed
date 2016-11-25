@@ -25,14 +25,12 @@ export class OrganeedService {
     }
     connection(email, password) {
         var header = this.headers();
-        // var creds = 'email=' + email + '&password=' + password;
         var creds = {email: email, password: password} ;
         let repos = this.http.post('http://92.222.94.185/api/login', JSON.stringify(creds), {headers : header});
         return repos;
     }
     register(firtname, lastname, age, tel, email, password) {
         var header = this.headers();
-        // var creds = 'email=' + email + '&password=' + password;
         var creds = {firt_name: firtname, last_name: lastname, age: age, phone_number: tel, email: email, password: password};
         let repos = this.http.post('http://92.222.94.185/api/register', JSON.stringify(creds), {headers : header});
         return repos;
@@ -43,8 +41,6 @@ export class OrganeedService {
     }
     addevent(title, datestart, timestart, dateend, timeend, desc, local, lat, lng) {
         var header = this.headers();
-        /*var creds = 'title=' + title + '&date_start=' + datestart + '&date_end=' + dateend + '&hour_start='
-            + timestart + '&hour_end=' + timeend + '&description=' + desc + '&place=' + local;*/
         var creds = {title: title, date_start: datestart, date_end: dateend, hour_start: timestart,
             hour_end: timeend, description: desc, place: local, lat: lat, lng: lng};
         console.log(creds);
@@ -53,10 +49,6 @@ export class OrganeedService {
     }
     getEventByManager(querysearch) {
         var header = this.headers();
-        /*var creds = 'title=' + title + '&date_start=' + datestart + '&date_end=' + dateend + '&hour_start='
-            + timestart + '&hour_end=' + timeend + '&description=' + desc + '&place=' + local;*/
-        // var creds = {};
-        // console.log(creds);
         let repos;
         if (querysearch) {
             repos = this.http.get('http://92.222.94.185/api/get/eventsByManager?querySearch=' + querysearch, {headers : header});
@@ -66,38 +58,27 @@ export class OrganeedService {
         return repos;
     }
     getComments(idevent) {
-        // var header = this.headers();
-        // var creds = {id_event: idevent};
         let repos = this.http.get('http://92.222.94.185/api/get/comments?id_event=' + idevent);
         return repos;
     }
     addCommentToEvent(idevent, message/*, idcommentresponse = null, img = null*/) {
         var header = this.headers();
         var creds = {id_event: idevent, content: message};
-        /*if (idcommentresponse !== null)
-            creds.id_comment_1 = idcommentresponse;
-        if (img !== null)
-            creds.img = img;*/
-        // var creds = {};
-        // console.log(creds);
         let repos = this.http.post('http://92.222.94.185/api/new/comment', JSON.stringify(creds), {headers : header});
         return repos;
     }
     getTags() {
         var header = this.headers();
-        // console.log(creds);
         let repos = this.http.get('http://92.222.94.185/api/get/tags', {headers : header});
         return repos;
     }
     getTagsById(idtag) {
         var header = this.headers();
-        // console.log(creds);
         let repos = this.http.get('http://92.222.94.185/api/get/tagsById?id_tag=' + idtag, {headers : header});
         return repos;
     }
     getTagColorByIdCom(idCom) {
         var header = this.headers();
-        // console.log(creds);
         let repos = this.http.get('http://92.222.94.185/api/get/tagColorByIdCom?id_comment=' + idCom, {headers : header});
         return repos;
     }

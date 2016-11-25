@@ -4,6 +4,10 @@
   background: linear-gradient(to left, #24C6DC , #514A9D); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
+.center {
+  text-align: center;
+}
+
 .login {
   .login-page .logo {
     padding: 20px 0;
@@ -30,7 +34,8 @@
 
   .myionitem {
     background-color: transparent !important;
-    padding-right: 16px !important;
+    /*padding-right: 16px !important;*/
+    padding-left: 0!important;
     color: white !important;
   }
 
@@ -234,7 +239,7 @@ img { max-width: 100%; }
 
 @media (max-width: 767px) {
 
-  .inner-bg { padding: 60px 0 110px 0; }
+  .inner-bg { padding: 20px 0 0 0!important; }
 
 }
 
@@ -242,4 +247,10 @@ img { max-width: 100%; }
 
   h1, h2 { font-size: 32px; }
 
+}
+
+.error-login {
+  padding-left: 40px;
+  color: red;
+  font-weight: bold;
 }

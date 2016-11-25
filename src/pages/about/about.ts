@@ -4,7 +4,7 @@ import { PopoverController, ViewController } from 'ionic-angular';
 
 
 @Component({
-  template: `
+    template: `
     <ion-list>
       <button ion-item (click)="close()">Learn Ionic</button>
       <button ion-item (click)="close()">Documentation</button>
@@ -15,24 +15,26 @@ import { PopoverController, ViewController } from 'ionic-angular';
 })
 class PopoverPage {
 
-  constructor(public viewCtrl: ViewController) { }
+    constructor(public viewCtrl: ViewController) {
+    }
 
-  close() {
-    this.viewCtrl.dismiss();
-  }
+    close() {
+        this.viewCtrl.dismiss();
+    }
 }
 
 
 @Component({
-  templateUrl: 'about.html'
+    templateUrl: 'about.html'
 })
 export class AboutPage {
-  conferenceDate = '2047-05-17';
+    conferenceDate = '2047-05-17';
 
-  constructor(public popoverCtrl: PopoverController) { }
+    constructor(public popoverCtrl:PopoverController) {
+    }
 
-  presentPopover(event) {
-    let popover = this.popoverCtrl.create(PopoverPage);
-    popover.present({ ev: event });
-  }
+    presentPopover(event) {
+        let popover = this.popoverCtrl.create(PopoverPage);
+        popover.present({ev: event});
+    }
 }

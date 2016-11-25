@@ -5,19 +5,14 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-8 col-sm-offset-2 text">
-                        <h1><strong>Organeed</strong></h1>
-                        <!--<div class="description">
-                            <p>
-                                This is a free responsive login form made with Bootstrap.
-                                Download it on <a href="http://azmind.com"><strong>AZMIND</strong></a>, customize and use it as you like!
-                            </p>
-                        </div>-->
+
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-6 col-sm-offset-3 form-box">
-                        <div class="form-top">
+                        <div class="form-top text ">
                             <div class="form-top-left">
+                                <h1><strong>Organeed</strong></h1>
                                 <h3>Connexion</h3>
                                 <p>Veuillez vous authentifier</p>
                             </div>
@@ -33,7 +28,7 @@
                                                spellcheck="false" autocapitalize="off" required placeholder="E-mail">
                                     </ion-input>
                                 </ion-item>
-                                <p [hidden]="username.valid || submitted == false" danger padding-left style="padding-left: 55px;">
+                                <p [hidden]="username.valid || submitted == false" danger padding-left class="error-login">
                                     L'email est obligatoire
                                 </p>
                                 <ion-item class="myionitem marginTop30">
@@ -41,7 +36,7 @@
                                     <ion-input [(ngModel)]="login.password" name="password" type="password" #password="ngModel" required placeholder="Mot de passe">
                                     </ion-input>
                                 </ion-item>
-                                <p [hidden]="password.valid || submitted == false" danger padding-left style="padding-left: 55px;">
+                                <p [hidden]="password.valid || submitted == false" danger padding-left class="error-login">
                                     Le mot de passe est obligatoire
                                 </p>
                                 <br>
@@ -71,10 +66,7 @@
                 </div>
             </div>
         </div>
-
     </div>
-
-
 </ion-content>
 
 <ion-footer><h5>&copy; 2016 - Organeed - All rights reserved</h5> </ion-footer>
